@@ -1,0 +1,41 @@
+.DashHeader {
+  display: flex;
+  margin-left: 15px;
+}
+
+.Dashboard {
+  margin-top: 8%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: white;
+}
+
+.dashBoard {
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+  background-color: #f4f7fc;
+}
+
+.dash_link {
+  color: black;
+  text-decoration: none !important ;
+}
+
+.dash_link:hover {
+  background-color: #f1eeff !important;
+  color: black;
+}
+
+.dash_home_link {
+  margin-top: 155px;
+  color: white;
+  background-color: rgba(110, 110, 110, 0.705);
+  padding: 8px;
+  text-decoration: none !important;
+}
+
+.dash_home_link:hover {
+  color: white;
+}

@@ -1,0 +1,21 @@
+.edit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.edit_form {
+  padding: 10px;
+  flex: 1;
+}
+
+.edit_items {
+  padding: 10px;
+  flex-direction: column;
+  flex: 1;
+}
+
+.border_middle {
+  padding-right: 5px;
+  border-left: 3px solid gray !important;
+}
