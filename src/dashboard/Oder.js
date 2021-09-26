@@ -44,6 +44,10 @@ function Oder() {
           <Link to="/Oder" className="dash_link">
             <h5>Oder List</h5>
           </Link>
+          <br />
+          <Link to="/users" className="dash_link">
+            <h5>Users</h5>
+          </Link>
           <Link to="/" className="dash_home_link">
             <h6> = Back to home</h6>
           </Link>

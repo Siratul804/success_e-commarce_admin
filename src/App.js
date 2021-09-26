@@ -17,6 +17,7 @@ import Loading from "./loading/Loading";
 import "./App.css";
 import Home from "./components/Home";
 import { ServerProvider } from "./contex/ServerContext";
+import Users from "./dashboard/Users";
 
 function App() {
   const [spinner, setSpinner] = useState(true);
@@ -73,6 +74,7 @@ function App() {
                     <Route exact path="/Add" component={AddService} />
                     <Route exact path="/Manage" component={Manage} />
                     <Route exact path="/Oder" component={Oder} />
+                    <Route exact path="/users" component={Users} />
                     <Route exact path="/Edit/:id" component={Edit} />
                     <Route path="*" component={errorr}></Route>
                   </Switch>

@@ -40,7 +40,6 @@ function AddService() {
           <Link className="text-dark" to="/Dashboard">
             <h3 style={{ marginBottom: "89px" }}> Dashboard </h3>
           </Link>
-
           <Link to="/Add" className="dash_link">
             <h5>Add Service</h5>
           </Link>
@@ -51,6 +50,10 @@ function AddService() {
           <br />
           <Link to="/Oder" className="dash_link">
             <h5>Oder List</h5>
+          </Link>{" "}
+          <br />
+          <Link to="/users" className="dash_link">
+            <h5>Users</h5>
           </Link>
           <Link to="/" className="dash_home_link">
             <h6> = Back to home</h6>

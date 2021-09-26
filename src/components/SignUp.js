@@ -31,6 +31,7 @@ function SignUp() {
         token: loginRes.data.token,
         user: loginRes.data.user,
       });
+      window.location.href = "/";
       localStorage.setItem("auth-token", loginRes.data.token);
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg);
