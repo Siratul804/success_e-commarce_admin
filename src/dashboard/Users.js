@@ -44,7 +44,18 @@ function Users() {
           </Link>
           <br />
           <Link to="/users" className="dash_link">
-            <h5>Users</h5>
+            <h5>
+              Users
+              <span
+                style={{
+                  backgroundColor: "red",
+                  padding: "5px",
+                  borderRadius: "20px",
+                }}
+              >
+                {res.length}
+              </span>
+            </h5>
           </Link>
           <Link to="/" className="dash_home_link">
             <h6> = Back to home</h6>

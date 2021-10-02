@@ -7,6 +7,7 @@ function AddService() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
+  const [categories, setCategories] = useState("");
   const [image, setImage] = useState([]);
 
   const onChnageFile = (e) => {
@@ -20,6 +21,7 @@ function AddService() {
     formData.append("image", image);
     formData.append("name", name);
     formData.append("description", description);
+    formData.append("categories", categories);
     formData.append("price", price);
 
     Axios.post("http://localhost:8000/api/post", formData).then((done, err) => {
@@ -90,6 +92,16 @@ function AddService() {
               <Form.Control
                 onChange={(e) => {
                   setDescription(e.target.value);
+                }}
+                type="text"
+                placeholder="Enter Service Description"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicText">
+              <Form.Label>categories : </Form.Label>
+              <Form.Control
+                onChange={(e) => {
+                  setCategories(e.target.value);
                 }}
                 type="text"
                 placeholder="Enter Service Description"

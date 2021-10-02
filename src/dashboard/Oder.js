@@ -14,6 +14,7 @@ function Oder() {
       .then((res) => {
         setRes(res.data);
         console.log(res.data);
+        console.log(res.data.length);
       })
       .catch(() => {
         console.log("ERR");
@@ -42,7 +43,18 @@ function Oder() {
           </Link>
           <br />
           <Link to="/Oder" className="dash_link">
-            <h5>Oder List</h5>
+            <h5>
+              Oder List
+              <span
+                style={{
+                  backgroundColor: "red",
+                  padding: "5px",
+                  borderRadius: "20px",
+                }}
+              >
+                {res.length}
+              </span>
+            </h5>
           </Link>
           <br />
           <Link to="/users" className="dash_link">
@@ -130,6 +142,7 @@ function Oder() {
                       >
                         Delete
                       </Button>
+                      <br />
                     </div>
                   </>
                 );

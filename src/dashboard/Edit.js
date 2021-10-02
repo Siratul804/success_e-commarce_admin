@@ -11,6 +11,7 @@ function Edit() {
   const [newName, setNewName] = useState({});
   const [newPrice, setNewPrice] = useState("");
   const [newDescription, setNewDescription] = useState("");
+  const [newCategories, setNewCategories] = useState("");
   const [newImage, setNewImage] = useState([]);
 
   console.log(newName, newPrice, newDescription);
@@ -76,6 +77,19 @@ function Edit() {
   const SubmitDescription = (id) => {
     Axios.put(`http://localhost:8000/api/update/text/${id}`, {
       newDescription: newDescription,
+    }).then((done, err) => {
+      if (done) {
+        window.location.reload();
+        alert("Text Update Success");
+      } else {
+        alert("failed");
+        console.log(err);
+      }
+    });
+  };
+  const SubmitCategoris = (id) => {
+    Axios.put(`http://localhost:8000/api/update/text/${id}`, {
+      newCategories: newCategories,
     }).then((done, err) => {
       if (done) {
         window.location.reload();
@@ -181,7 +195,6 @@ function Edit() {
                       placeholder="Enter Service Description"
                     />
                   </Form.Group>
-
                   <Button
                     variant="dark"
                     onClick={() => {
@@ -189,6 +202,26 @@ function Edit() {
                     }}
                   >
                     Submit The Service Description
+                  </Button>
+                  <Form.Group className="mb-3" controlId="formBasicText">
+                    <Form.Label>Categories : </Form.Label>
+                    <Form.Control
+                      defaultValue={detailCategory.categories}
+                      onChange={(e) => {
+                        setNewCategories(e.target.value);
+                      }}
+                      type="text"
+                      placeholder="Enter Service Categoris"
+                    />
+                  </Form.Group>
+
+                  <Button
+                    variant="dark"
+                    onClick={() => {
+                      SubmitCategoris(detailCategory._id);
+                    }}
+                  >
+                    Submit The Service Categoris
                   </Button>
                   <Form.Group controlId="formFile" className="mb-3">
                     <Form.Label>Service Image:</Form.Label>
@@ -215,6 +248,11 @@ function Edit() {
                   <b>Service Description:</b>
                   <br />
                   <p>{detailCategory.description}</p>
+                </div>
+                <div>
+                  <b>Service Categoris:</b>
+                  <br />
+                  <p>{detailCategory.categories}</p>
                 </div>
                 <div>
                   <b>Service Price:</b>
