@@ -87,7 +87,22 @@ function AddService() {
                 }}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Description :</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+                type="text"
+                placeholder="Enter Service Description"
+              />
+            </Form.Group>
+            {/* <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>Description : </Form.Label>
               <Form.Control
                 onChange={(e) => {
@@ -96,7 +111,7 @@ function AddService() {
                 type="text"
                 placeholder="Enter Service Description"
               />
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>categories : </Form.Label>
               <Form.Control
@@ -104,7 +119,7 @@ function AddService() {
                   setCategories(e.target.value);
                 }}
                 type="text"
-                placeholder="Enter Service Description"
+                placeholder="Enter Service Category"
               />
             </Form.Group>
             <Form.Group controlId="formFile" className="mb-3">

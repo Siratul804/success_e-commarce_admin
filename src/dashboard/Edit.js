@@ -184,9 +184,15 @@ function Edit() {
                   >
                     Submit The Service Price
                   </Button>
-                  <Form.Group className="mb-3" controlId="formBasicText">
+
+                  <Form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlTextarea1"
+                  >
                     <Form.Label>Description : </Form.Label>
                     <Form.Control
+                      as="textarea"
+                      rows={3}
                       defaultValue={detailCategory.description}
                       onChange={(e) => {
                         setNewDescription(e.target.value);
@@ -203,6 +209,7 @@ function Edit() {
                   >
                     Submit The Service Description
                   </Button>
+
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>Categories : </Form.Label>
                     <Form.Control
