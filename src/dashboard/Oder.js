@@ -42,7 +42,7 @@ function Oder() {
             <h5>Manage Service</h5>
           </Link>
           <br />
-          <Link to="/Oder" className="dash_link">
+          <a href="/Oder" className="dash_link">
             <h5>
               Oder List
               <span
@@ -55,11 +55,11 @@ function Oder() {
                 {res.length}
               </span>
             </h5>
-          </Link>
+          </a>
           <br />
-          <Link to="/users" className="dash_link">
+          <a href="/users" className="dash_link">
             <h5>Users</h5>
-          </Link>
+          </a>
           <Link to="/" className="dash_home_link">
             <h6> = Back to home</h6>
           </Link>
