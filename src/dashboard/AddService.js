@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { Form, Button } from "react-bootstrap";
+import { API_URL } from "../constants";
 
 function AddService() {
   const [name, setName] = useState("");
@@ -24,7 +25,9 @@ function AddService() {
     formData.append("categories", categories);
     formData.append("price", price);
 
-    Axios.post("http://localhost:8000/api/post", formData).then((done, err) => {
+    const url = `${API_URL}/api/post`;
+
+    Axios.post(url, formData).then((done, err) => {
       if (done) {
         window.location.reload();
         alert("Success");
@@ -102,16 +105,6 @@ function AddService() {
                 placeholder="Enter Service Description"
               />
             </Form.Group>
-            {/* <Form.Group className="mb-3" controlId="formBasicText">
-              <Form.Label>Description : </Form.Label>
-              <Form.Control
-                onChange={(e) => {
-                  setDescription(e.target.value);
-                }}
-                type="text"
-                placeholder="Enter Service Description"
-              />
-            </Form.Group> */}
             <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>categories : </Form.Label>
               <Form.Control

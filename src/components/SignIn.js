@@ -3,6 +3,7 @@ import UserContext from "../context/UserContext";
 import { Form, Button } from "react-bootstrap";
 import Axios from "axios";
 import ErrorNotice from "../misc/ErrorNotice";
+import { API_URL } from "../constants";
 
 function SignIn() {
   const [email, setEmail] = useState();
@@ -15,11 +16,9 @@ function SignIn() {
   const submit = async (e) => {
     e.preventDefault();
     try {
+      const url_S = `${API_URL}/api/admin/SignIn`;
       const loginUser = { email, password };
-      const loginRes = await Axios.post(
-        "http://localhost:8000/api/admin/SignIn",
-        loginUser
-      );
+      const loginRes = await Axios.post(url_S, loginUser);
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,

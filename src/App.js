@@ -18,6 +18,7 @@ import "./App.css";
 import Home from "./components/Home";
 import { ServerProvider } from "./contex/ServerContext";
 import Users from "./dashboard/Users";
+import { API_URL } from "./constants";
 
 function App() {
   const [spinner, setSpinner] = useState(true);
@@ -29,18 +30,15 @@ function App() {
         localStorage.setItem("auth-token", "");
         token = "";
       }
-      const tokenRes = await Axios.post(
-        "http://localhost:8000/api/admin/tokenIsValied",
-        null,
-        { headers: { "x-auth-token": token } }
-      );
+      const url1 = `${API_URL}/api/admin/tokenIsValied`;
+      const tokenRes = await Axios.post(url1, null, {
+        headers: { "x-auth-token": token },
+      });
       if (tokenRes.data) {
-        const userRes = await Axios.get(
-          "http://localhost:8000/api/admin/getUser",
-          {
-            headers: { "x-auth-token": token },
-          }
-        );
+        const url2 = `${API_URL}/api/admin/getUser`;
+        const userRes = await Axios.get(url2, {
+          headers: { "x-auth-token": token },
+        });
         setUserData({
           token,
           user: userRes.data,

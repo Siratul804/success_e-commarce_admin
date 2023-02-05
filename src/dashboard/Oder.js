@@ -6,11 +6,14 @@ import "./oder.css";
 
 import { Scrollbars } from "react-custom-scrollbars-2";
 
+import { API_URL } from "../constants";
+
 function Oder() {
   const [res, setRes] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:8000/api/get/oder")
+    const url = `${API_URL}/api/get/oder`;
+    Axios.get(url)
       .then((res) => {
         setRes(res.data);
         console.log(res.data);
@@ -22,7 +25,8 @@ function Oder() {
   }, []);
 
   const DeleteOder = (id) => {
-    Axios.delete(`http://localhost:8000/api/delete/oder/${id}`);
+    const url = `${API_URL}/api/delete/oder/${id}`;
+    Axios.delete(url);
     window.location.reload();
   };
 
@@ -73,7 +77,6 @@ function Oder() {
                   <>
                     <div
                       style={{
-                        borderStyle: "double",
                         padding: "15px",
                         marginTop: "15px",
                       }}

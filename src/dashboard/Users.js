@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import { Link } from "react-router-dom";
+import { API_URL } from "../constants";
 
 function Users() {
   const [res, setRes] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:8000/api/admin/getUser")
+    const url = `${API_URL}/api/admin/getUser`;
+    Axios.get(url)
       .then((res) => {
         setRes(res.data);
         console.log(res.data);
@@ -19,7 +21,8 @@ function Users() {
   }, []);
 
   const DeleteUser = (id) => {
-    Axios.delete(`http://localhost:8000/api/admin/userDelete/${id}`);
+    const url = `${API_URL}/api/admin/userDelete/${id}`;
+    Axios.delete(url);
     window.location.reload();
   };
 

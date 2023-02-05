@@ -6,12 +6,15 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 import { ServerContext } from "../contex/ServerContext";
 import axios from "axios";
 
+import { API_URL } from "../constants";
+
 function Manage() {
   const { get } = useContext(ServerContext);
   const [getValue] = get;
 
   const DeleteService = (id) => {
-    axios.delete(`http://localhost:8000/api/delete/${id}`);
+    const url = `${API_URL}/api/delete/${id}`;
+    axios.delete(url);
     window.location.reload();
   };
 

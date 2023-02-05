@@ -1,40 +1,92 @@
-.LoadingBack {
-  background-color: black;
-}
-.Loading {
+.load_box {
+  padding: 50%;
+  align-items: center;
+  background-color: #1D1F20;
   display: flex;
-  padding-top: 20px;
-  padding-bottom: 36.5px;
   justify-content: center;
+  padding: 287.5px 0;
 }
 
-.loader {
-  border: 16px solid #f3f3f3;
+.loader  {
+  animation: rotate 2s infinite;  
+  height: 50px;
+  width: 50px;
+}
+
+.loader:before,
+.loader:after {   
   border-radius: 50%;
-  border-top: 16px solid blue;
-  border-right: 16px solid green;
-  border-bottom: 16px solid red;
-  border-left: 16px solid pink;
-  width: 600px;
-  height: 600px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
+  content: '';
+  display: block;
+  height: 20px;  
+  width: 20px;
+}
+.loader:before {
+  animation: ball1 2s infinite;  
+  background-color: #ffd700;
+  box-shadow: 30px 0 0 #ffd700;
+  margin-bottom: 10px;
+}
+.loader:after {
+  animation: ball2 2s infinite; 
+  background-color: #ffd700 ;
+  box-shadow: 30px 0 0 #ffd700 ;
 }
 
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
+@keyframes rotate {
+  0% { 
+    -webkit-transform: rotate(0deg) scale(0.8); 
+    -moz-transform: rotate(0deg) scale(0.8);
   }
-  100% {
-    -webkit-transform: rotate(360deg);
+  50% { 
+    -webkit-transform: rotate(360deg) scale(1.2); 
+    -moz-transform: rotate(360deg) scale(1.2);
+  }
+  100% { 
+    -webkit-transform: rotate(720deg) scale(0.8); 
+    -moz-transform: rotate(720deg) scale(0.8);
   }
 }
 
-@keyframes spin {
+@keyframes ball1 {
   0% {
-    transform: rotate(0deg);
+    box-shadow: 30px 0 0 #ffd700;
+  }
+  50% {
+    box-shadow: 0 0 0 #ffd700 ;
+    margin-bottom: 0;
+    -webkit-transform: translate(15px,15px);
+    -moz-transform: translate(15px, 15px);
   }
   100% {
-    transform: rotate(360deg);
+    box-shadow: 30px 0 0 #ffd700 ;
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 #ffd700 ;
+  }
+  50% {
+    box-shadow: 0 0 0 #ffd700;
+    margin-top: -20px;
+    -webkit-transform: translate(15px,15px);
+    -moz-transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #ffd700;
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .load_box {
+    padding: 50%;
+    align-items: center;
+    background-color: #1D1F20;
+    display: flex;
+    justify-content: center;
+    padding: 350px 0;
   }
 }

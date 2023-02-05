@@ -4,6 +4,7 @@ import UserContext from "../context/UserContext";
 import { Form, Button, Alert } from "react-bootstrap";
 import Axios from "axios";
 import ErrorNotice from "../misc/ErrorNotice";
+import { API_URL } from "../constants";
 
 function SignUp() {
   const [name, setName] = useState();
@@ -18,15 +19,14 @@ function SignUp() {
   const submit = async (e) => {
     e.preventDefault();
     try {
+      const url_S = `${API_URL}/api/admin/SignUp`;
       const newUser = { name, email, password, passwordCheck, displayName };
-      await Axios.post("http://localhost:8000/api/admin/SignUp", newUser);
-      const loginRes = await Axios.post(
-        "http://localhost:8000/api/admin/SignIn",
-        {
-          email,
-          password,
-        }
-      );
+      await Axios.post(url_S, newUser);
+      const url_I = `${API_URL}/api/admin/SignIn`;
+      const loginRes = await Axios.post(url_I, {
+        email,
+        password,
+      });
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,
