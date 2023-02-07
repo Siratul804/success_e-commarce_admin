@@ -42,11 +42,11 @@ function Users() {
             <h5>Manage Service</h5>
           </Link>
           <br />
-          <a href="/Oder" className="dash_link">
+          <Link to="/Oder" className="dash_link">
             <h5>Oder List</h5>
-          </a>
+          </Link>
           <br />
-          <a href="/users" className="dash_link">
+          <Link to="/users" className="dash_link">
             <h5>
               Users
               <span
@@ -59,7 +59,7 @@ function Users() {
                 {res.length}
               </span>
             </h5>
-          </a>
+          </Link>
           <Link to="/" className="dash_home_link">
             <h6> = Back to home</h6>
           </Link>
